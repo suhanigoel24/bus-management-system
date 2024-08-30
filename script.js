@@ -20,5 +20,10 @@ function activeLink(){
 list.forEach((item) => 
 item.addEventListener('mouseover',activeLink));
 
+function searchDriver() {
+    let driverName = "Rajesh Kumar"; // Placeholder driver name
+    document.getElementById("driverInfo").innerText = "Allotted Driver: " + driverName;
+}
+
 
 
