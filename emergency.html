@@ -63,6 +63,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="emergencyResponse.html">
+                        <span class="icon"><ion-icon name="notifications-circle-outline"></ion-icon></span>
+                        <span class="title">Emergency Response</span>
+                    </a>
+                </li>
+                <li>
                     <a href="#">
                         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                         <span class="title">log out</span>
@@ -72,9 +78,103 @@
 
             </ul>
         </div>
-        <script src="script.js"></script>
-            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <div class="main">
+            <div class="details">
+                <div class="notiContainer">
+                    <div class="notificationContainer">
+                        <header>
+                            <div class="notificationHeader">
+                                <h1>Notifications</h1>
+                                <span id="num-of-notif"></span>
+                            </div>
+                            <p id="mark-as-read">Mark all as Read</p>
+                        </header>
+                        <main>
+                            <div class="notificatinCard unread">
+
+                                <div class="description">
+                                    <p>Bus Break down</p>
+                                    <div id="notif-time">1m ago</div>
+                                </div>
+                            </div>
+                            <div class="notificatinCard unread">
+
+                                <div class="description">
+                                    <p>passenger misbehaviour</p>
+                                    <div id="notif-time">5m ago</div>
+                                </div>
+                            </div>
+                            <div class="notificatinCard unread">
+
+                                <div class="description">
+                                    <p>Bus Break down</p>
+                                    <div id="notif-time">1m ago</div>
+                                </div>
+                            </div>
+                            <div class="notificatinCard ">
+
+                                <div class="description">
+                                    <p>passenger misbehaviour</p>
+                                    <div id="notif-time">5m ago</div>
+                                </div>
+                            </div>
+                            <div class="notificatinCard ">
+
+                                <div class="description">
+                                    <p>Bus Break down</p>
+                                    <div id="notif-time">1m ago</div>
+                                </div>
+                            </div>
+                            <div class="notificatinCard ">
+
+                                <div class="description">
+                                    <p>passenger misbehaviour</p>
+                                    <div id="notif-time">5m ago</div>
+                                </div>
+                            </div>
+                            <div class="notificatinCard ">
+
+                                <div class="description">
+                                    <p>Bus Break down</p>
+                                    <div id="notif-time">1m ago</div>
+                                </div>
+                            </div>
+
+
+                        </main>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script>
+            const unReadMessages = document.querySelectorAll('.unread');
+            const unReadMessagesCount = document.getElementById('num-of-notif');
+            const markAll = document.getElementById('mark-as-read');
+
+            unReadMessagesCount.innerText = unReadMessages.length;
+
+            unReadMessages.forEach((message) => {
+                message.addEventListener('click', () => {
+                    message.classList.remove('unread');
+                    const newUnreadMessages = document.querySelectorAll('.unread');
+                    unReadMessagesCount.innerText = newUnreadMessages.length;
+                }
+
+                );
+            });
+
+            markAll.addEventListener('click', () => {
+                unReadMessages.forEach((message) => {
+                    message.classList.remove('unread');
+                });
+
+                const newUnreadMessages = document.querySelectorAll('.unread');
+                unReadMessagesCount.innerHTML = newUnreadMessages.length;
+            });
+        </script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
